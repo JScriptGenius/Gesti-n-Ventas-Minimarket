@@ -15,7 +15,7 @@
                 <div class="card shadow">
                     <div class="card-body p-5">
                         <h4 class="display-6 fw-bold text-success mb-5 text-center">¡REGÍSTRATE!</h4>
-                        <form th:action="@{/empleado/registrarEmpleado}" method="post" novalidate>
+                        <form th:action="@{/registrarEmpleado}" method="post" novalidate>
                             <div class="form-floating top mb-3">
                                 <input id="dni" type="text" name="dni" placeholder="DNI" class="form-control" required autofocus autocomplete="off">
                                 <label for="dni">DNI</label>
@@ -51,7 +51,7 @@
                                 <button class="btn btn-lg boton-market">Registrarse</button>
                             </div>
                             <div class="d-grid gap-2 mt-3">
-                                <a th:href="@{/empleado/loginPage}" class="btn btn-outline-danger btn-lg">Cancelar</a>
+                                <a th:href="@{/login}" class="btn btn-outline-danger btn-lg">Cancelar</a>
                             </div>
                         </form>
                     </div>

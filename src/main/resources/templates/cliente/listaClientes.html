@@ -41,7 +41,8 @@
 
     <!-- Tabla de Clientes -->
     <div class="table-responsive">
-        <table class="table table-striped table-hover table-bordered">
+        <table class="table table-striped table-hover table-bordered text-center">
+            <!-- Encabezado de la tabla -->
             <thead class="thead-dark">
             <tr>
                 <th scope="col">ID</th>
@@ -51,6 +52,7 @@
                 <th scope="col">Acciones</th>
             </tr>
             </thead>
+            <!-- Cuerpo de la tabla -->
             <tbody>
             <tr th:each="client : ${clientes}" th:object="${client}">
                 <td th:text="*{idCliente}"></td>

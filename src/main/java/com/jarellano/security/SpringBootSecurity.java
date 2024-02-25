@@ -26,16 +26,16 @@ public class SpringBootSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                    .antMatchers("/autenticacion/**").permitAll()
+//                    .antMatchers("/**").permitAll()
                     .antMatchers("/empleado/**").authenticated()
                     .antMatchers("/cliente/**").authenticated()
                     .antMatchers("/producto/**").authenticated()
                     .antMatchers("/venta/**").authenticated()
                 .and()
                 .formLogin()
-                    .loginPage("/empleado/loginPage")
+                    .loginPage("/login")
                     .permitAll().
-                    defaultSuccessUrl("/empleado/acceder");
+                    defaultSuccessUrl("/acceder");
     }
 
     @Bean

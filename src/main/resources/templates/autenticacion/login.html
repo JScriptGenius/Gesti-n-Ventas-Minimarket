@@ -9,7 +9,7 @@
 </head>
 <body>
 <main class="form-signin text-center">
-    <form th:action="@{/empleado/loginPage}" method="post">
+    <form th:action="@{/login}" method="post">
         <img class="mb-3" src="/img/logo_login.png" alt="logo">
         <h1 class="h3 mb-3 fw-normal">Iniciar Sesión</h1>
         <div class="form-floating top">
@@ -22,7 +22,7 @@
         </div>
         <button class="w-100 btn btn-lg btn-dark bottom" type="submit">Iniciar Sesión</button>
         <p class="mt-3 mb-3 text-muted">© Jhosep Bernabe Arellano Castillo 2024</p>
-        <p>No tienes una cuenta? <a th:href="@{/empleado/registrarse}">Regístrate</a></p>
+        <p>No tienes una cuenta? <a th:href="@{/registrarse}">Regístrate</a></p>
     </form>
 </main>
 </body>
