@@ -1,0 +1,85 @@
+@font-face{
+    font-family: 'Oleo Script';
+    src:url(/fonts/OleoScript/OleoScript-Bold.ttf);
+    font-weight: bold;
+    font-style: bold;
+}
+
+/* light - regular - bold */
+@font-face{
+    font-family: 'Merriweather Sans';
+    src:url(/fonts/MerriweatherSans/static/MerriweatherSans-ExtraBoldItalic.ttf);
+    font-weight: bold;
+    font-style: bold;
+}
+
+.bg-minimarket{
+    background-color: #1B8E23;
+}
+
+.boton-vitapan{
+    background-color: #1B8E23;
+    color: #964B00;
+}
+
+.boton-vitapan:hover{
+    background-color: #D2B48C;
+    color: #964B00;
+}
+
+
+.presentation-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-fa
+}
+
+.font-h1 {
+    color: white;
+    font-size: 200px;
+    font-family: 'Oleo Script';
+}
+
+/*rgb(52, 37, 19);*/
+
+.font-header-items {
+    color: #FFFFFF;
+    font-size: 18px;
+    font-family: 'Merriweather Sans';
+}
+
+.font-header-items:hover {
+    color: #F0DE07;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex-grow: 1;
+}
+
+.footer-minimarket {
+    background-color: #1B8E23;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 30px;
+}
+
+.footer-minimarket-home {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #1B8E23;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 30px;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Cliente</title>
+    <!-- BOOTSTRAP CSS -->
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- HEADER -->
+<div th:include="empleado/layout.html::encabezado"></div>
+
+<div class="container py-5">
+
+    <!-- Banner de título -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-8 text-center">
+            <h1 class="display-4 fw-bold text-success">Registrar Nuevo Cliente</h1>
+            <p class="lead">Complete el formulario para registrar un nuevo cliente en la tienda.</p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form th:action="@{/cliente/registrarCliente}" method="post">
+
+                <!-- Campo de Dni -->
+                <div class="mb-3">
+                    <label for="dni" class="form-label">DNI:</label>
+                    <input type="text" class="form-control" id="dni" name="dni" placeholder="Ingrese DNI del cliente" required autocomplete="off" autofocus>
+                </div>
+
+                <!-- Campo de Nombre -->
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del cliente" required autocomplete="off">
+                </div>
+
+                <!-- Campo de Email -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Dirección de correo electronico del cliente" required autocomplete="off">
+                </div>
+
+                <!-- Botones de Guardar y Cancelar -->
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-success btn-lg">Guardar Cliente</button>
+                    <a class="btn btn-secondary btn-lg" th:href="@{/cliente/listaClientes}">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div th:include="empleado/layout.html::pie_pagina"></div>
+
+<!-- BOOTSTRAP JAVASCRIPT -->
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

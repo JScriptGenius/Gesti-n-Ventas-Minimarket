@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Layout</title>
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Encabezado -->
+<div th:fragment="encabezado">
+    <header class="p-3 mb-2 border-bottom bg-minimarket">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container">
+                    <a class="navbar-brand" href="#">
+                        <img src="/img/logo.png" alt="Minimarket Logo" class="img-fluid" style="width: 50px;">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link font-header-items" th:href="@{/empleado/listaEmpleados}">Empleados</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-header-items" th:href="@{/cliente/listaClientes}">Clientes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-header-items" th:href="@{/producto/listaProductos}">Productos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-header-items" th:href="@{/venta/seleccionarProducto}">Ventas</a>
+                            </li>
+                        </ul>
+                        <!-- Informacion empleado -->
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle font-header-items" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="/img/usuario.png" alt="Usuario" class="rounded-circle" style="width: 30px;">
+                                <span th:text="${empleado.usuario}"></span>
+                            </a>
+                            <ul class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
+                                <li><span th:text="${empleado.dni}"></span></li>
+                                <li><span th:text="${empleado.nombre}"></span></li>
+                                <li><a class="dropdown-item" href="#"><span th:text="${empleado.apellido}"></span></a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" th:href="@{/empleado/cerrarSesion}">Salir</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+</div>
+
+<!-- Pie de página -->
+<div th:fragment="pie_pagina">
+    <footer class="footer-minimarket">
+        <div class="container-fluid">
+            <p class="text-center text-white m-0">© 2024 Jhosep Arellano. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</div>
+
+<!-- BOOTSTRAP JAVASCRIPT -->
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

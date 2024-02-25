@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Generar Venta</title>
+    <!-- BOOTSTRAP CSS -->
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- HEADER -->
+<div th:include="empleado/layout.html::encabezado"></div>
+
+<!-- BANNER -->
+<div class="bg-dark py-5 mt-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-12 text-center">
+                <h1 class="text-white">SELECCIONAR CLIENTE</h1>
+            </div>
+            <div class="col-md-12 text-center mt-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-transparent mb-0 justify-content-center">
+                        <li class="breadcrumb-item active" aria-current="page"><a class="text-white" th:href="@{/venta/seleccionarProducto}">Seleccionar Producto</a></li>
+                        <li class="breadcrumb-item text-white">/</li>
+                        <li class="breadcrumb-item active" aria-current="page"><a class="text-white" th:href="@{/venta/verProductosAgregadosVenta}">Gestionar Productos Venta</a></li>
+                        <li class="breadcrumb-item text-white">/</li>
+                        <li class="breadcrumb-item active" aria-current="page"><a class="text-white" th:href="@{/venta/verClientes}">Seleccionar Cliente</a></li>
+                        <li class="breadcrumb-item text-white">/</li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">Seleccionar Cliente</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="card-body">
+
+                        <!-- Datos del Cliente -->
+                        <div class="card mb-3">
+                            <div class="card-header bg-success text-white">
+                                <h5 class="card-title mb-0 text-center">
+                                    DATOS DEL CLIENTE
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p class="mb-0"><strong>DNI:</strong> <span th:text="${cliente.dni}"></span></p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="mb-0"><strong>NOMBRE:</strong> <span th:text="${cliente.nombre}"></span></p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="mb-0"><strong>EMAIL:</strong> <span th:text="${cliente.email}"></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Productos -->
+                        <div class="card">
+                            <div class="card-header bg-secondary text-white">
+                                <h5 class="card-title mb-0 text-center">
+                                    PRODUCTOS
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">Producto</th>
+                                            <th scope="col">Precio</th>
+                                            <th scope="col">Cantidad</th>
+                                            <th scope="col">Total</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr th:each="dtventa : ${detalles}">
+                                            <td th:text="${dtventa.producto.getNombre()}"></td>
+                                            <td th:text="${dtventa.precioUnitario}"></td>
+                                            <td th:text="${dtventa.cantidad}"></td>
+                                            <td th:text="${dtventa.totalDetalle}"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumen de Venta -->
+                <div class="col-lg-3 mt-3">
+                    <div class="card bg-success text-white">
+                        <div class="card-header text-center">
+                            <h4>RESUMEN DE VENTA</h4>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="text-center" th:text="'Total: ' + ${venta.totalVenta}"></h4>
+                            <hr>
+                            <div class="d-grid">
+                                <a th:href="@{/venta/generarVenta}" class="btn btn-light btn-lg">Generar Venta</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div th:include="empleado/layout.html::pie_pagina"></div>
+
+<!-- BOOTSTRAP JAVASCRIPT -->
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

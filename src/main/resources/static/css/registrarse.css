@@ -1,0 +1,46 @@
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .card {
+            border-radius: 1rem;
+        }
+
+        .boton-market {
+            background-color: #1B8E23;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .boton-market:hover {
+            background-color: #008409;
+            color: white;
+        }
+
+        .form-signin {
+              max-width: 330px;
+              padding: 15px;
+              margin: auto;
+              margin-top: 10%;
+            }
+
+            .form-signin .form-floating:focus-within {
+              z-index: 2;
+            }
+
+            .top {
+              margin-bottom: -1px;
+              border-bottom-right-radius: 0;
+              border-bottom-left-radius: 0;
+            }
+
+            .middle{
+              border-radius: 0;
+              margin-bottom: -1px;
+            }
+
+            .bottom {
+              margin-bottom: 10px;
+              border-top-left-radius: 0;
+              border-top-right-radius: 0;
+            }

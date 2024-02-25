@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Actualizar Producto</title>
+    <!-- BOOTSTRAP CSS -->
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- HEADER -->
+<div th:include="empleado/layout.html::encabezado"></div>
+
+<div class="container py-5">
+
+    <!-- Banner de título -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-8 text-center">
+            <h1 class="display-4 fw-bold text-success">Editar Producto</h1>
+            <p class="lead">Complete el formulario para editar la información del producto.</p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form th:action="@{/producto/actualizarProducto}" method="post" th:object="${producto}" enctype="multipart/form-data">
+
+                <!-- Campo de ID oculto -->
+                <input type="hidden" name="idProducto" th:value="*{idProducto}">
+
+                <!-- Campo de Nombre -->
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre del Producto:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" th:value="*{nombre}" placeholder="Ingrese el nombre del producto" required autocomplete="off">
+                </div>
+
+                <!-- Campo de Descripción -->
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Descripción:</label>
+                    <textarea class="form-control" id="descripcion" rows="1" name="descripcion" th:text="*{descripcion}" placeholder="Ingrese la descripción del producto" required autocomplete="off"></textarea>
+                </div>
+
+                <!-- Campo de Precio -->
+                <div class="mb-3">
+                    <label for="precio" class="form-label">Precio:</label>
+                    <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input type="number" class="form-control" id="precio" step="0.01" name="precio" th:value="*{precio}" placeholder="Ingrese el precio del producto" required autocomplete="off">
+                    </div>
+                </div>
+
+                <!-- Campo de Stock -->
+                <div class="mb-3">
+                    <label for="stock" class="form-label">Stock:</label>
+                    <input type="number" class="form-control" id="stock" name="stock" th:value="*{stock}" placeholder="Ingrese la cantidad en stock" required autocomplete="off">
+                </div>
+
+                <!-- Campo de Imagen -->
+                <div class="mb-3">
+                    <label for="img" class="form-label">Imagen:</label>
+                    <input type="file" class="form-control-file" id="img" name="img">
+                </div>
+
+                <!-- Botones de Guardar y Cancelar -->
+                <div class="d-grid gap-2 mt-4">
+                    <button type="submit" class="btn btn-success btn-lg">Guardar Cambios</button>
+                    <a class="btn btn-secondary btn-lg" href="#">Cancelar</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div th:include="empleado/layout.html::pie_pagina"></div>
+
+<!-- BOOTSTRAP JAVASCRIPT -->
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

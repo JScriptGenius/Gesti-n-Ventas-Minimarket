@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Producto</title>
+    <!-- BOOTSTRAP CSS -->
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- HEADER -->
+<div th:include="empleado/layout.html::encabezado"></div>
+
+<!-- BANNER -->
+<div class="bg-dark py-5 mt-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-12 text-center">
+                <h1 class="text-white">SELECCIONAR PRODUCTO</h1>
+            </div>
+            <div class="col-md-12 text-center mt-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-transparent mb-0 justify-content-center">
+                        <li class="breadcrumb-item active text-white" aria-current="page">Seleccionar Producto</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <form th:action="@{/venta/searchProduct}" method="post" class="d-flex">
+                <input class="form-control flex-grow-1 me-2" type="text" name="nombre" placeholder="Buscar producto por nombre">
+                <button class="btn" type="submit"><img src="/img/lupa.png" alt="buscar" width="50" height="50"></button>
+                <a class="btn" th:href="@{/venta/seleccionarProducto}"><img src="/img/tienda.png" alt="tienda" width="50" height="50"></a>
+                <a class="btn" th:href="@{/venta/verProductosAgregadosVenta}"><img src="/img/venta.png" alt="tienda" width="50" height="50"></a>
+            </form>
+        </div>
+    </div>
+
+    <div th:if="${msgConfirmacionOrden ne null}" class="alert alert-success alert-dismissible mt-3">
+        [[${msgConfirmacionOrden}]]
+        <button class="close" data-dismiss="alert" aria-label="Cerrar">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-lg-3 col-md-6 mb-4" th:each="product : ${productos}">
+            <div class="card h-100">
+                <img class="card-img-top" th:src="@{/images/{img} (img=${product.imagen})}" alt="Imagen de producto">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${product.nombre}">Nombre del Producto</h5>
+                    <p class="card-text" th:text="'Precio: S/.' + ${product.precio}"></p>
+                </div>
+                <div class="card-footer">
+                    <form th:action="@{/venta/agregarProductoVenta}" method="post">
+                        <input type="hidden" name="idProducto" th:value="${product.idProducto}">
+                        <div class="input-group">
+                            <input type="number" name="cantidad" value="1" min="1" class="form-control">
+                            <button type="submit" class="btn btn-success">Añadir al carrito</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div th:include="empleado/layout.html::pie_pagina"></div>
+
+<!-- BOOTSTRAP JAVASCRIPT -->
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
