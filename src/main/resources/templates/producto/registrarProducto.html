@@ -56,7 +56,10 @@
                 <!-- Campo de Imagen -->
                 <div class="mb-3">
                     <label for="img" class="form-label">Imagen:</label>
-                    <input type="file" class="form-control-file" id="img" name="img">
+                    <div class="input-group">
+                        <input type="file" class="form-control" id="img" name="img" aria-describedby="inputGroupFileAddon" aria-label="Upload">
+                        <label class="input-group-text" for="img">Subir 30 x 30</label>
+                    </div>
                 </div>
 
                 <!-- Botones de Guardar y Cancelar -->
